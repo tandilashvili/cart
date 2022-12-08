@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/cart', [\App\Http\Controllers\CartController::class, 'getUserCart']);
+Route::post('/add', [\App\Http\Controllers\CartController::class, 'addProductInCart']);
+Route::post('/delete', [\App\Http\Controllers\CartController::class, 'removeProductFromCart']);
+Route::post('/update', [\App\Http\Controllers\CartController::class, 'setCartProductQuantity']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
